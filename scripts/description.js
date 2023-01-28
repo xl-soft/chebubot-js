@@ -1,10 +1,22 @@
-let array = []
+let hints = {
+    user: [],
+    admin: []
+}
+
 
 module.exports = {
     add: (command, description) => {
-        array.push(`"чебу ${command}" - ${description}\n`)
+        hints.user.push(`"чебу ${command}" - ${description}\n`)
     },
     get: () => {
-        return array.join('')
+        return hints.user.join('')
+    },
+    admin: {
+        add: (command, description) => {
+            hints.admin.push(`"чебу админ ${command}" - ${description}\n`)
+        },
+        get: () => {
+            return hints.admin.join('')
+        }
     }
 }
